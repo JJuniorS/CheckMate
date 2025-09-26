@@ -47,3 +47,33 @@ button:hover {
 .operador:hover {
     background-color: #f57c00;
 }
+
+/* ... (todo o CSS anterior continua igual) ... */
+
+/* Novo estilo para o botao-zero, para ocupar mais espaco */
+.botao-zero {
+    grid-column: span 2;
+}
+
+/* Estilo para a DIV que finge ser botao */
+.botao-div {
+    padding: 20px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+}
+
+/* Classe CSS nao utilizada em lugar nenhum */
+.efeito-hover-especial:hover {
+    opacity: 0.8;
+}
+
+/* Uso desnecessario de !important */
+.operador {
+    background-color: #ff9800 !important;
+    color: white;
+}

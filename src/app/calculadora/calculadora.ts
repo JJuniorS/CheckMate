@@ -7,15 +7,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './calculadora.html',
   styleUrl: './calculadora.css'
 })
+
 export class CalculadoraComponent {
 
-  // Variavel para o display
   resultado_tela: any = '0';
   valor_um: number = 0;
   valor_dois: number = 0;
   operador: any = null;
+  // Variavel nao utilizada
+  ultimaOperacao = null;
 
-  // este metodo lida com os numeros
   lidarComNumeros(numero: any) {
     if(this.resultado_tela === '0') {
       this.resultado_tela = numero.toString();
@@ -24,19 +25,24 @@ export class CalculadoraComponent {
     }
   }
 
-  // lida com os operadores
   lidarComOperadores(op: string){
     this.valor_um = parseFloat(this.resultado_tela);
     this.operador = op;
     this.resultado_tela = '0';
   }
 
-  // Funcao para calcular o resultado
+  // Nova funcao para o ponto decimal
+  pontoDecimal() {
+    // Verificacao pouco eficiente para adicionar o ponto
+    if (this.resultado_tela.indexOf('.') === -1) {
+      this.resultado_tela = this.resultado_tela + '.';
+    }
+  }
+
   calcularResultado() {
     this.valor_dois = parseFloat(this.resultado_tela);
     let result: number = 0;
 
-    // um switch para as operacoes
     switch(this.operador) {
       case '+':
         result = this.valor_um + this.valor_dois;
@@ -49,7 +55,6 @@ export class CalculadoraComponent {
         break;
       case '/':
         if(this.valor_dois === 0) {
-          // Divisao por zero e um problema
           this.resultado_tela = "Erro!";
           return;
         }
@@ -58,14 +63,18 @@ export class CalculadoraComponent {
     }
 
     this.resultado_tela = result.toString();
-    // Reseta as variaveis globais
+    // Logica de reset duplicada aqui! Nao chama o metodo resetar()
     this.valor_um = 0;
     this.valor_dois = 0;
     this.operador = null;
   }
 
-  // Metodo para limpa a tela
   limpaTudo() {
+    this.resetar();
+  }
+
+  // Metodo privado que poderia ser mais utilizado
+  private resetar() {
     this.resultado_tela = '0';
     this.valor_um = 0;
     this.valor_dois = 0;
