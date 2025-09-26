@@ -1,0 +1,25 @@
+<div class="calculadora-corpo">
+    <div class="visor">{{ resultado_tela }}</div>
+
+    <div class="botoes-grid">
+        <button (click)="lidarComNumeros(7)">7</button>
+        <button (click)="lidarComNumeros(8)">8</button>
+        <button (click)="lidarComNumeros(9)">9</button>
+        <button class="operador" (click)="lidarComOperadores('/')">/</button>
+
+        <button (click)="lidarComNumeros(4)">4</button>
+        <button (click)="lidarComNumeros(5)">5</button>
+        <button (click)="lidarComNumeros(6)">6</button>
+        <button class="operador" (click)="lidarComOperadores('*')">x</button>
+
+        <button (click)="lidarComNumeros(1)">1</button>
+        <button (click)="lidarComNumeros(2)">2</button>
+        <button (click)="lidarComNumeros(3)">3</button>
+        <button class="operador" (click)="lidarComOperadores('-')">-</button>
+
+        <button (click)="lidarComNumeros(0)">0</button>
+        <button (click)="limpaTudo()">C</button>
+        <button class="operador" (click)="calcularResultado()">=</button>
+        <button class="operador" (click)="lidarComOperadores('+')">+</button>
+    </div>
+</div>

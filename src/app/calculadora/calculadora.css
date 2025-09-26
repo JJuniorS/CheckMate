@@ -1,0 +1,49 @@
+/* Estilo geral */
+.calculadora-corpo {
+    width: 300px;
+    margin: 50px auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.visor {
+    background-color: #ddd;
+    color: #333;
+    font-size: 2.5em;
+    padding: 10px;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 50px;
+}
+
+.botoes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+}
+
+button:hover {
+    background-color: #d0d0d0;
+}
+
+.operador {
+    background-color: #ff9800; /* Laranja para operadores */
+    color: white;
+}
+
+.operador:hover {
+    background-color: #f57c00;
+}

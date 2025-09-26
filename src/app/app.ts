@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { CalculadoraComponent } from './calculadora/calculadora'; // Importe aqui
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
+  imports: [CommonModule, RouterOutlet, CalculadoraComponent],
+  template: `
+    <app-calculadora></app-calculadora>
+  `,
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('CheckMate');
+  title = 'meu-projeto-teste';
 }
